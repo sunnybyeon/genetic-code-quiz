@@ -1,0 +1,188 @@
+:root {
+    --very-light-color: #a9a9a9;
+    --light-color: #4b4b4b;
+    --special-color: #675348;
+    --special-color-light: #b0936d;
+    --wrong-color: #be0404;
+}
+html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+}
+body {
+    padding: 2rem 1rem;
+    margin: auto;
+}
+
+* {
+    font-family: "Pretendard Variable", Pretendard, -apple-system,
+        BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+        "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+button {
+    all: unset;
+    border-bottom: 2px solid var(--very-light-color);
+}
+button:hover {
+    cursor: pointer;
+}
+p {
+    text-align: center;
+}
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#start-page .icon {
+    text-align: center;
+}
+#start-page img {
+    width: 40%;
+    opacity: 0.7;
+}
+#start-page h1 {
+    margin: 0.75rem 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+}
+#start-page button {
+    font-size: 1.2rem;
+    border-bottom-width: 3px;
+}
+#start-button {
+    border-bottom-color: var(--special-color-light);
+    color: var(--special-color);
+    font-weight: 550;
+}
+#help-button {
+    color: var(--light-color);
+}
+.credits {
+    margin-top: 1.3rem;
+    font-size: 0.9rem;
+    color: var(--light-color);
+}
+
+#quiz-page {
+    position: relative;
+}
+#problem-type {
+    margin: 0 0 0.25rem;
+    font-size: 1.15rem;
+    font-weight: 450;
+    color: var(--light-color);
+}
+#problem {
+    margin: 0.25rem 0 1rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+#left-carbon,
+#right-carbon {
+    color: var(--light-color);
+    font-weight: 475;
+}
+.answer-section {
+    position: relative;
+}
+#answer-input {
+    all: unset;
+    max-width: 250px;
+    padding: 0.3rem 2rem;
+    border-bottom: 3px solid var(--very-light-color);
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+#answer-input:focus {
+    border-bottom-color: var(--special-color-light);
+}
+#answer-input.wrong {
+    color: var(--wrong-color);
+    animation: wrong 0.15s linear infinite;
+    border-bottom-color: var(--wrong-color);
+}
+@keyframes wrong {
+    0% {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    25% {
+        padding-right: 2.1rem;
+        padding-left: 1.9rem;
+    }
+    75% {
+        padding-right: 1.9rem;
+        padding-left: 2.1rem;
+    }
+    100% {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}
+#submit-button {
+    position: absolute;
+    padding: 0.25rem 0.2rem;
+    border: none;
+    right: 0;
+    bottom: 0;
+    font-size: 1.3rem;
+    color: var(--special-color);
+}
+#end-button {
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    color: var(--light-color);
+    font-size: 0.9rem;
+    font-weight: 350;
+}
+
+#help-page p {
+    margin: 0.5rem;
+}
+#codon-table {
+    margin: 1.5rem 0 2rem;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+#codon-table caption {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-decoration: underline double 1.75px var(--special-color);
+    text-underline-offset: 5px;
+}
+#codon-table th,
+#codon-table td {
+    border: 1px solid var(--very-light-color);
+    text-align: center;
+    padding: 0.25rem 1rem;
+}
+@media (width < 650px) {
+    #codon-table th,
+    #codon-table td {
+        padding: 0.25rem 0.3rem;
+    }
+}
+#codon-table .special-codon {
+    font-weight: 550;
+}
+#help-page button {
+    font-size: 1.1rem;
+}
+#close-help-button {
+    color: var(--light-color);
+}
+#start-from-help-button {
+    color: var(--special-color);
+    border-bottom-color: var(--special-color-light);
+    font-weight: 550;
+}

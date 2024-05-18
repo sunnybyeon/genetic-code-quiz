@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>유전 부호 퀴즈</title>
+        <script src="./index.js" defer></script>
+        <link rel="stylesheet" href="./index.css" />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
+        <link rel="shortcut icon" href="./favicon.svg" />
+    </head>
+    <body>
+        <article id="start-page">
+            <div class="icon">
+                <img src="./favicon.svg" alt="DNA Icon" />
+            </div>
+            <h1>유전 부호 퀴즈</h1>
+            <div class="buttons">
+                <button id="start-button">시작!!</button>
+                <button id="help-button">도움말</button>
+            </div>
+            <p class="credits">
+                The DNA icon and favicon is by Hary Murdiono JS <br />from
+                <a
+                    href="https://thenounproject.com/browse/icons/term/dna/"
+                    target="_blank"
+                    title="DNA Icons"
+                    >Noun Project</a
+                >
+                (CC BY 3.0)
+            </p>
+        </article>
+        <article id="quiz-page" style="display: none">
+            <p id="problem-type"></p>
+            <p id="problem">
+                <span id="left-carbon"></span><span id="genetic-code"></span
+                ><span id="right-carbon"></span>
+            </p>
+            <div class="answer-section">
+                <input type="text" id="answer-input" />
+                <button id="submit-button">&#x279C;</button>
+            </div>
+            <button id="end-button">끝내기</button>
+        </article>
+        <article id="help-page" style="display: none">
+            <p>주어진 유전 부호가 암호화하는 아미노산을 맞추세요!</p>
+            <p>종결 코돈의 경우 <strong>‘종결’</strong>이 정답입니다.</p>
+            <table id="codon-table">
+                <caption>
+                    코돈표
+                </caption>
+                <tr>
+                    <th rowspan="2">첫째 염기</th>
+                    <th colspan="4">둘째 염기</th>
+                    <th rowspan="2">셋째 염기</th>
+                </tr>
+                <tr>
+                    <!-- <th>첫째 염기</th> -->
+                    <th>U</th>
+                    <th>C</th>
+                    <th>A</th>
+                    <th>G</th>
+                    <!-- <th>셋째 염기</th> -->
+                </tr>
+                <tr>
+                    <th rowspan="4">U</th>
+                    <td rowspan="2">페닐알라닌</td>
+                    <td rowspan="4">세린</td>
+                    <td rowspan="2">타이로신</td>
+                    <td rowspan="2">시스테인</td>
+                    <th>U</th>
+                </tr>
+                <tr>
+                    <!-- 
+                        <th>U</th>
+                        <td>페닐알라닌</td>
+                        <td>세린</td>
+                        <td>타이로신</td>
+                        <td>시스테인</td>
+                    -->
+                    <th>C</th>
+                </tr>
+                <tr>
+                    <!-- <th>U</th> -->
+                    <td rowspan="2">류신</td>
+                    <!-- <td>세린</td> -->
+                    <td rowspan="2" class="special-codon">종결</td>
+                    <td class="special-codon">종결</td>
+                    <th>A</th>
+                </tr>
+                <tr>
+                    <!--
+                        <th>U</th>
+                        <td>류신</td>
+                        <td>세린</td>
+                        <td>종결</td>
+                    -->
+                    <td>트립토판</td>
+                    <th>G</th>
+                </tr>
+                <tr>
+                    <th rowspan="4">C</th>
+                    <td rowspan="4">류신</td>
+                    <td rowspan="4">프롤린</td>
+                    <td rowspan="2">히스티딘</td>
+                    <td rowspan="4">아르지닌</td>
+                    <th>U</th>
+                </tr>
+                <tr>
+                    <!--
+                        <th>C</th>
+                        <td>류신</td>
+                        <td>프롤린</td>
+                        <td>히스티딘</td>
+                        <td>아르지닌</td>
+                    -->
+                    <th>C</th>
+                </tr>
+                <tr>
+                    <!--
+                        <th>C</th>
+                        <td>류신</td>
+                        <td>프롤린</td>
+                    -->
+                    <td rowspan="2">글루타민</td>
+                    <!-- <td>아르지닌</td> -->
+                    <th>A</th>
+                </tr>
+                <tr>
+                    <!--
+                        <th>C</th>
+                        <td>류신</td>
+                        <td>프롤린</td>
+                        <td>글루타민</td>
+                        <td>아르지닌</td>
+                    -->
+                    <th>G</th>
+                </tr>
+                <tr>
+                    <th rowspan="4">A</th>
+                    <td rowspan="3">아이소류신</td>
+                    <td rowspan="4">트레오닌</td>
+                    <td rowspan="2">아스파라진</td>
+                    <td rowspan="2">세린</td>
+                    <th>U</th>
+                </tr>
+                <tr>
+                    <!--
+                        <th>A</th>
+                        <td>아이소류신</td>
+                        <td>트레오닌</td>
+                        <td>아스파라진</td>
+                        <td>세린</td>
+                    -->
+                    <th>C</th>
+                </tr>
+                <tr>
+                    <!--
+                        <th>A</th>
+                        <td>아이소류신</td>
+                        <td>트레오닌</td>
+                    -->
+                    <td rowspan="2">라이신</td>
+                    <td rowspan="2">아르지닌</td>
+                    <th>A</th>
+                </tr>
+                <tr>
+                    <!--
+                        <th>A</th>
+                    -->
+                    <td class="special-codon">메싸이오닌</td>
+                    <!--
+                        <td>트레오닌</td>
+                        <td>라이신</td>
+                        <td>아르지닌</td>
+                    -->
+                    <th>G</th>
+                </tr>
+                <tr>
+                    <th rowspan="4">G</th>
+                    <td rowspan="4">발린</td>
+                    <td rowspan="4">알라닌</td>
+                    <td rowspan="2">아스파트산</td>
+                    <td rowspan="4">글리신</td>
+                    <th>U</th>
+                </tr>
+                <tr>
+                    <!--
+                        <th>G</th>
+                        <td>발린</td>
+                        <td>알라닌</td>
+                        <td>아스파트산</td>
+                        <td>글리신</td>
+                    -->
+                    <th>C</th>
+                </tr>
+                <tr>
+                    <!--
+                        <th>G</th>
+                        <td>발린</td>
+                        <td>알라닌</td>
+                    -->
+                    <td rowspan="2">글루탐산</td>
+                    <!--
+                        <td>글리신</td>
+                    -->
+                    <th>A</th>
+                </tr>
+                <tr>
+                    <!--
+                        <th>G</th>
+                        <td>발린</td>
+                        <td>알라닌</td>
+                        <td>글루탐산</td>
+                        <td>글리신</td>
+                    -->
+                    <th>G</th>
+                </tr>
+            </table>
+            <div class="buttons">
+                <button id="close-help-button">기본화면</button>
+                <button id="start-from-help-button">시작하기</button>
+            </div>
+        </article>
+    </body>
+</html>
